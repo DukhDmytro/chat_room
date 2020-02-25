@@ -20,11 +20,11 @@ GET: messages list; POST: create message
 
 Get message by id, id example: 5
 
-`https://testtaskchatroom.herokuapp.com/api/messages/id`
+`https://testtaskchatroom.herokuapp.com/api/messages/id/`
 
 Paging example:
 
-`https://testtaskchatroom.herokuapp.com/api/messages/?page=2`
+`https://testtaskchatroom.herokuapp.com/api/messages/?page=2/`
 
 ## Getting Started
 1. Install requirements
