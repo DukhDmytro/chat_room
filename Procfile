@@ -1,1 +1,1 @@
-web: gunicorn chat_room.wsgi
+web: gunicorn chat_test_task.wsgi
