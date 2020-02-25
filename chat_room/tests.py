@@ -17,12 +17,14 @@ class MessagesTestCase(APITestCase):
         # create message test
         response = self.client.post('http://127.0.0.1:8000/api/messages/', data=DATA)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['message'], DATA['message'])
 
     def test_invalid_email(self):
         """Test send message with invalid email"""
-        # empty email field test
+        # invalid email
+        DATA['email'] = '!#yq#5@gmail.com'
         response = self.client.post('http://127.0.0.1:8000/api/messages/', data=DATA)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
         # invalid email
         DATA['email'] = 'invlaid.gmail.com'

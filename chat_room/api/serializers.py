@@ -14,15 +14,14 @@ class MessageSerializer(serializers.ModelSerializer):
     def validate_email(self, email):
         """Email validator"""
         regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
-        if re.search(regex, email):
+        if re.match(regex, email):
             return email
         raise serializers.ValidationError('Invalid email')
 
 
     def validate_message(self, message):
         """Message validation"""
-        rege = '^.{1,100}$'
-        print(message)
-        if re.fullmatch(rege, message):
+        regex = '^.{1,100}$'
+        if re.fullmatch(regex, message):
             return message
         raise serializers.ValidationError('Message must contain 1-100 chars')
