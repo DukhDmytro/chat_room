@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Messages(models.Model):
-    message = models.CharField(max_length=100)
+    message = models.TextField()
     author = models.CharField(max_length=50)
     email = models.EmailField()
     create_date = models.DateTimeField(auto_now_add=True)
